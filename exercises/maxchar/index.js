@@ -13,8 +13,6 @@ function maxChar(str) {
     })
 
     const keys = Object.keys(obj)
-    const sortable = [];
-
     return keys.sort((a,b) => {obj[b]-obj[a]})[0];
 }
 
