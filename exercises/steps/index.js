@@ -17,6 +17,18 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+
+    // 1. iterate thru n
+    // 2 console n number of # with n-i spaces
+    let step = new Array(n+1).join(' ');
+    
+    for (let i = 0; i<n; i++) {
+        step = step.split('')
+        step[i] = '#';
+        step = step.join('')
+        console.log(step)
+    }
+}
 
 module.exports = steps;
