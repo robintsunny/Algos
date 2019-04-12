@@ -17,7 +17,6 @@
 function pyramid(n) {
     let row = new Array(n*2).join(' ');
     const mid = n-1;
-    // row[mid] = '#';
 
     let i;
 
