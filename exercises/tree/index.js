@@ -10,7 +10,32 @@
 // on the tree class.  Each method should accept a
 // function that gets called with each element in the tree
 
-class Node {}
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.children = []
+    }
+
+    add(val) {
+        this.children.push(new Node(val))
+    }
+
+    remove(val) {
+        const chldrn = this.children;
+        let res;
+
+        chldrn.forEach((node,i) => {
+            if (node.data === val) {
+                res = node
+            }
+        })
+
+        if (res) {
+            this.children = chldrn.filter(e => e !== res)
+        } 
+
+    }
+}
 
 class Tree {}
 
