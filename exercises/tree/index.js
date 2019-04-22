@@ -21,22 +21,36 @@ class Node {
     }
 
     remove(val) {
-        const chldrn = this.children;
-        let res;
-
-        chldrn.forEach((node,i) => {
-            if (node.data === val) {
-                res = node
-            }
-        })
-
-        if (res) {
-            this.children = chldrn.filter(e => e !== res)
-        } 
-
+        this.children = this.children.filter(node => {
+            return node.data !== val;
+        });
     }
 }
 
-class Tree {}
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+
+    traverseBF(fn) {
+        const nodes = [this.root]
+        
+        while (nodes.length) {
+            const node = nodes.shift();
+            if (node.children) {nodes.push(...node.children)}
+            fn(node)
+        }
+    }
+
+    traverseDF(fn) {
+        const nodes = [this.root]
+
+        while (nodes.length) {
+            const node = nodes.shift()
+            if (node.children) {nodes.unshift(...node.children)}
+            fn(node)
+        }
+    }
+}
 
 module.exports = { Tree, Node };
