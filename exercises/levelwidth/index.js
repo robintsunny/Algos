@@ -15,7 +15,7 @@ function levelWidth(root) {
     const nodes = [root, 's']
     const counter = [0]
 
-    while (nodes.length && nodes.length !== 1) {
+    while (nodes.length > 1) {
         if (nodes[0] === 's') {
             nodes.push(nodes.shift())
             counter.push(0)
